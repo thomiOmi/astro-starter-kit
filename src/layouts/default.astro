@@ -1,0 +1,45 @@
+---
+import { Font } from 'astro:assets'
+import '@/styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Astro Starter Kit',
+  description = 'Multi-framework Astro starter kit with React, Vue, Svelte, Solid, Ark UI and Tailwind CSS.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="smooth-scroll">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <Font cssVariable="--font-inter" preload />
+    <script is:inline>
+ // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+ if (
+   localStorage.getItem('color-theme') === 'dark'
+   || (!('color-theme' in localStorage)
+     && window.matchMedia('(prefers-color-scheme: dark)').matches)
+ ) {
+   document.documentElement.classList.add('dark')
+ }
+ else {
+   document.documentElement.classList.remove('dark')
+ }
+ </script>
+  </head>
+  <body
+    class="antialiased bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+  >
+    <slot />
+  </body>
+</html>
