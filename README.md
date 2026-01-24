@@ -1,43 +1,115 @@
-# Astro Starter Kit: Minimal
+# 🚀 Astro Ultimate Starter Kit
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A robust, multi-framework starter kit built with **Astro**, **Tailwind CSS v4**, and **Ark UI**. Designed for scalability, performance, and modern developer experience.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Astro](https://img.shields.io/badge/Astro-5.0-orange?style=flat&logo=astro)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat&logo=tailwindcss)
+![Multi-Framework](https://img.shields.io/badge/Frameworks-React_|_Vue_|_Svelte_|_Solid-blueviolet)
 
-## 🚀 Project Structure
+## ✨ Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Multi-Framework Support**: Seamlessly render **React**, **Vue 3**, **Svelte 5**, and **SolidJS** components side-by-side using Astro Islands.
+- **Headless UI**: Integrated [Ark UI](https://ark-ui.com/) for accessible, unstyled components across all frameworks.
+- **Styling**: Powered by [Tailwind CSS v4](https://tailwindcss.com/) (Vite integration) with a consistent design system.
+- **State Management**: Zero-config shared state between frameworks using [Nano Stores](https://github.com/nanostores/nanostores).
+- **Dark Mode**: Fully implemented with a flicker-free toggle, persisted to `localStorage`, and synced with Nano Stores.
+- **Icons**: [Iconify](https://iconify.design/) integration via `astro-icon` and framework-specific libraries (`@iconify/react`, etc.), utilizing the `lucide` icon set offline.
+- **Code Quality**: Pre-configured **ESLint** with the opinionated [@antfu/eslint-config](https://github.com/antfu/eslint-config).
+- **TypeScript**: Full type safety enabled for all frameworks.
+
+## 🛠️ Tech Stack
+
+| Category         | Technology                                                         |
+| ---------------- | ------------------------------------------------------------------ |
+| **Core**         | [Astro](https://astro.build/)                                      |
+| **Styling**      | [Tailwind CSS v4](https://tailwindcss.com/)                        |
+| **UI Primitive** | [Ark UI](https://ark-ui.com/)                                      |
+| **State**        | [Nano Stores](https://github.com/nanostores/nanostores)            |
+| **Icons**        | [Iconify](https://iconify.design/) + [Lucide](https://lucide.dev/) |
+| **Linting**      | [ESLint](https://eslint.org/) (@antfu)                             |
+
+## 📂 Project Structure
 
 ```text
 /
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/
+│   │   ├── react/        # React components
+│   │   ├── solid/        # SolidJS components
+│   │   ├── svelte/       # Svelte components
+│   │   ├── vue/          # Vue components
+│   │   ├── ThemeToggle.astro # Zero-JS toggle component
+│   ├── layouts/
+│   │   └── default.astro # Base layout with dark mode init script
+│   ├── pages/
+│   │   └── index.astro   # Main entry point
+│   ├── stores/
+│   │   ├── counter.ts    # Example shared atom store
+│   │   └── theme.ts      # Theme state management
+│   └── styles/
+│       └── global.css    # Tailwind v4 imports & custom variants
+├── astro.config.mjs      # Configuration for integrations
+├── eslint.config.mjs     # Antfu ESLint config
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧞 Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1.  **Install Dependencies**
 
-Any static assets, like images, can be placed in the `public/` directory.
+    ```bash
+    npm install
+    ```
 
-## 🧞 Commands
+2.  **Run Development Server**
 
-All commands are run from the root of the project, from a terminal:
+    ```bash
+    npm run dev
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3.  **Build for Production**
+    ```bash
+    npm run build
+    ```
 
-## 👀 Want to learn more?
+## 📜 Available Scripts
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command              | Description                                 |
+| :------------------- | :------------------------------------------ |
+| `npm run dev`        | Start the development server                |
+| `npm run build`      | Build the site for production               |
+| `npm run preview`    | Preview the production build locally        |
+| `npm run lint`       | Run ESLint to check for code quality issues |
+| `npm run lint:fix`   | Run ESLint and auto-fix fixable issues      |
+| `npm run type-check` | Run Astro's type checker                    |
+| `npm run astro`      | Access the Astro CLI directly               |
+
+## 🧩 Key Concepts
+
+### Shared State (Nano Stores)
+
+Components from different frameworks can read and write to the same state.
+
+```ts
+// src/stores/counter.ts
+import { atom } from 'nanostores'
+
+export const $counter = atom(0)
+```
+
+### Dark Mode
+
+Dark mode is handled by `src/stores/theme.ts` and applied via a `dark` class on `<html>`. The `theme` is persisted in `localStorage`.
+
+- **Toggle**: `src/components/ThemeToggle.astro` handles user interaction.
+- **Init**: `src/layouts/default.astro` contains an inline script to prevent FOUC (Flash of Unstyled Content).
+
+### Icons
+
+Use icons easily in any file:
+
+- **Astro**: `<Icon name="lucide:home" />`
+- **React**: `<Icon icon="lucide:home" />`
+- **Vue**: `<Icon icon="lucide:home" />`
+- **Svelte**: `<Icon icon="lucide:home" />`
+- **Solid**: `<Icon icon="lucide:home" />`
