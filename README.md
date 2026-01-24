@@ -74,7 +74,7 @@ A robust, multi-framework starter kit built with **Astro**, **Tailwind CSS v4**,
     npm run build
     ```
 
-## 📜 Available Scripts
+## 📜 Available Commands
 
 | Command              | Description                                 |
 | :------------------- | :------------------------------------------ |
