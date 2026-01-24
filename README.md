@@ -4,7 +4,9 @@ A robust, multi-framework starter kit built with **Astro**, **Tailwind CSS v4**,
 
 ![Astro](https://img.shields.io/badge/Astro-5.0-orange?style=flat&logo=astro)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat&logo=tailwindcss)
+![Ark UI](https://img.shields.io/badge/Ark_UI-v5-eb5e41?style=flat)
 ![Multi-Framework](https://img.shields.io/badge/Frameworks-React_|_Vue_|_Svelte_|_Solid-blueviolet)
+[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 
 ## ✨ Features
 
