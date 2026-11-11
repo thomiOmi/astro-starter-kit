@@ -88,15 +88,15 @@ A robust, multi-framework starter kit built with **Astro**, **Tailwind CSS v4**,
 
 ## 📜 Available Commands
 
-| Command              | Description                                 |
-| :------------------- | :------------------------------------------ |
-| `npm run dev`        | Start the development server                |
-| `npm run build`      | Build the site for production               |
-| `npm run preview`    | Preview the production build locally        |
-| `npm run lint`       | Run ESLint to check for code quality issues |
-| `npm run lint:fix`   | Run ESLint and auto-fix fixable issues      |
-| `npm run type-check` | Run Astro's type checker                    |
-| `npm run astro`      | Access the Astro CLI directly               |
+| Command             | Description                                 |
+| :------------------ | :------------------------------------------ |
+| `npm run dev`       | Start the development server                |
+| `npm run build`     | Build the site for production               |
+| `npm run preview`   | Preview the production build locally        |
+| `npm run lint`      | Run ESLint to check for code quality issues |
+| `npm run lint:fix`  | Run ESLint and auto-fix fixable issues      |
+| `npm run typecheck` | Run Astro's type checker                    |
+| `npm run astro`     | Access the Astro CLI directly               |
 
 ## 🧩 Key Concepts
 
