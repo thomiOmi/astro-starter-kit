@@ -21,6 +21,13 @@ updates:
       - dependency-name: typescript
         update-types:
           - version-update:semver-major
+      # `@antfu/eslint-config@10` peers `eslint-plugin-solid ^0.17.0`, so 0.18.x
+      # and up break that range. For a 0.x package the breaking bumps arrive as
+      # minor releases, so semver-minor has to be ignored too, not just major.
+      - dependency-name: eslint-plugin-solid
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-major
     groups:
       # Routine bumps land as one PR instead of one PR per package, which is
       # what makes the PR list pile up. Major bumps stay separate on purpose so
