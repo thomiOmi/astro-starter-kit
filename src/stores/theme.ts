@@ -6,7 +6,9 @@ export const $theme = atom<Theme>('light')
 
 export function toggleTheme() {
   const current = $theme.get()
-  const next = current === 'light' ? 'dark' : 'light'
+  const next = current === 'light'
+    ? 'dark'
+    : 'light'
   $theme.set(next)
 }
 

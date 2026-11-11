@@ -33,7 +33,6 @@ A robust, multi-framework starter kit built with **Astro**, **Tailwind CSS v4**,
 ## 📂 Project Structure
 
 ```text
-/
 ├── src/
 │   ├── components/
 │   │   ├── react/        # React components

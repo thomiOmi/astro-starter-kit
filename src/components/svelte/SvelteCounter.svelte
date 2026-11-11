@@ -19,7 +19,9 @@
     min={0}
     max={100}
     class='flex flex-col gap-2'
-    value={[$count.toString()]}
+    value={[
+      $count.toString(),
+    ]}
     onValueChange={details => counterAtom.set(details.valueAsNumber)}
   >
     <NumberInput.Label class='text-sm font-medium text-gray-700 dark:text-gray-300'>Quantity</NumberInput.Label>
