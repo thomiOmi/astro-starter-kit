@@ -40,6 +40,3 @@ Thumbs.db
 .netlify/
 .wrangler/
 
-# Local MCP server config
-mcp.json
-.agents/mcp.json
