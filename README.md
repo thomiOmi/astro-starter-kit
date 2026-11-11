@@ -69,7 +69,20 @@ A robust, multi-framework starter kit built with **Astro**, **Tailwind CSS v4**,
     npm run dev
     ```
 
-3.  **Build for Production**
+3.  **Configure Your Site URL**
+
+    Set `site` in `astro.config.mjs` to your production domain. It is used for
+    canonical URLs and sitemap generation, so the `example.com` placeholder will
+    produce sitemap entries that do not match your deployed site.
+
+    ```js
+    // astro.config.mjs
+    export default defineConfig({
+      site: 'https://your-domain.com',
+    })
+    ```
+
+4.  **Build for Production**
     ```bash
     npm run build
     ```
