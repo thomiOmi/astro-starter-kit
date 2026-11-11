@@ -1,0 +1,47 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    # Caps how many Dependabot PRs can be open at once.
+    open-pull-requests-limit: 5
+    # Dependabot already waits 3 days by default; 5 gives a release more time to
+    # be pulled for issues before it lands here as a pull request.
+    cooldown:
+      default-days: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    # `astro check` rejects TypeScript 7, so a major bump would only produce a
+    # pull request that can never pass type-checking.
+    ignore:
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
+    groups:
+      # Routine bumps land as one PR instead of one PR per package, which is
+      # what makes the PR list pile up. Major bumps stay separate on purpose so
+      # each breaking change can be reviewed and verified on its own.
+      minor-and-patch:
+        patterns:
+          - '*'
+        update-types:
+          - minor
+          - patch
+
+  # Picks up action version bumps once this repository has workflows; until then
+  # Dependabot has nothing to scan and stays quiet.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    cooldown:
+      default-days: 5
+    groups:
+      github-actions:
+        patterns:
+          - '*'
