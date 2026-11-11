@@ -9,6 +9,8 @@ import { defineConfig, fontProviders } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
+  // Replace with your production domain. Used for canonical URLs and the sitemap.
+  site: 'https://example.com',
   vite: {
     plugins: [tailwindcss()],
   },
@@ -25,14 +27,12 @@ export default defineConfig({
     icon(),
   ],
   scopedStyleStrategy: 'where',
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.fontsource(),
-        name: 'Inter',
-        cssVariable: '--font-inter',
-        weights: ['100 900'],
-      },
-    ],
-  },
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Inter',
+      cssVariable: '--font-inter',
+      weights: ['100 900'],
+    },
+  ],
 })
