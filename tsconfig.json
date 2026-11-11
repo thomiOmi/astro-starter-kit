@@ -1,13 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    // Needed for TypeScript intellisense in the template inside Vue files
+    // Leave JSX untransformed so each framework's Vite plugin compiles it.
+    // React and Solid files declare `/** @jsxImportSource ... */` per file.
     "jsx": "preserve",
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [".astro/types.d.ts", "src/.env.d.ts", "**/*"],
+  "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
 }
