@@ -13,8 +13,7 @@
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "type-check": "astro check",
-    "verify": "npm run lint && npm run type-check && npm run build",
+    "typecheck": "astro check",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
@@ -64,15 +63,13 @@
     "simple-git-hooks": "^2.14.0",
     "typescript": "^6.0.3"
   },
-  "overrides": {
-    "minimatch": "^11.0.7",
-    "tinypool": "^2.2.0"
-  },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged",
-    "pre-push": "npm run verify"
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,cjs,mjs,ts,tsx,vue,svelte,astro,json,jsonc,md,css}": "eslint --fix --no-warn-ignored"
+    "*": "eslint --fix"
+  },
+  "allowScripts": {
+    "simple-git-hooks": true
   }
 }

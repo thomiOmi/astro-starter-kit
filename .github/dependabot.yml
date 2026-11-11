@@ -6,32 +6,18 @@ updates:
     schedule:
       interval: weekly
       day: monday
-    # Caps how many Dependabot PRs can be open at once.
     open-pull-requests-limit: 5
-    # Dependabot already waits 3 days by default; 5 gives a release more time to
-    # be pulled for issues before it lands here as a pull request.
     cooldown:
       default-days: 5
-    commit-message:
-      prefix: chore
-      include: scope
-    # `astro check` rejects TypeScript 7, so a major bump would only produce a
-    # pull request that can never pass type-checking.
     ignore:
       - dependency-name: typescript
         update-types:
           - version-update:semver-major
-      # `@antfu/eslint-config@10` peers `eslint-plugin-solid ^0.17.0`, so 0.18.x
-      # and up break that range. For a 0.x package the breaking bumps arrive as
-      # minor releases, so semver-minor has to be ignored too, not just major.
       - dependency-name: eslint-plugin-solid
         update-types:
           - version-update:semver-minor
           - version-update:semver-major
     groups:
-      # Routine bumps land as one PR instead of one PR per package, which is
-      # what makes the PR list pile up. Major bumps stay separate on purpose so
-      # each breaking change can be reviewed and verified on its own.
       minor-and-patch:
         patterns:
           - '*'
@@ -39,8 +25,6 @@ updates:
           - minor
           - patch
 
-  # Picks up action version bumps once this repository has workflows; until then
-  # Dependabot has nothing to scan and stays quiet.
   - package-ecosystem: github-actions
     directory: /
     schedule:
