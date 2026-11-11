@@ -13,7 +13,9 @@
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "type-check": "astro check"
+    "type-check": "astro check",
+    "verify": "npm run lint && npm run type-check && npm run build",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@ark-ui/react": "^5.30.0",
@@ -58,10 +60,19 @@
     "eslint-plugin-solid": "^0.17.1",
     "eslint-plugin-svelte": "^3.14.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "lint-staged": "^17.6.0",
+    "simple-git-hooks": "^2.14.0",
     "typescript": "^6.0.3"
   },
   "overrides": {
     "minimatch": "^11.0.7",
     "tinypool": "^2.2.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "pre-push": "npm run verify"
+  },
+  "lint-staged": {
+    "*.{js,jsx,cjs,mjs,ts,tsx,vue,svelte,astro,json,jsonc,md,css}": "eslint --fix --no-warn-ignored"
   }
 }
